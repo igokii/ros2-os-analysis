@@ -5,7 +5,7 @@
 This repository contains a high-level architectural analysis of **ROS 2 (Robot Operating System)** evaluated through core operating systems principles. It explores how ROS 2 builds abstractions on top of standard OS kernels to manage processes, hardware interfaces, communication, and scheduling.
 
 ## Project Presentation Video (10 Min)
-Click the image below to watch the video defense where I explain these concepts in detail:
+This is the video defense where I explain these concepts in detail:
 
 > ### [Watch the Video Presentation on Clipchamp (Click Here) ↗](https://uses0-my.sharepoint.com/personal/iregonqui_alum_us_es/_layouts/15/stream.aspx?id=%2Fpersonal%2Firegonqui%5Falum%5Fus%5Fes%2FDocuments%2FIRENE%20GONZALEZ%20QUIROS%20%2D%20ROS%20OS%20PROJECT%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E308e1a93%2Dcbb5%2D4d9d%2D9e89%2Df81e38ab01c6)
 > *In this 10-minute video defense, I walk through the slides and explain these OS concepts in detail.*
