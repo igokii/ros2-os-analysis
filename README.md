@@ -14,7 +14,7 @@ Click the image below to watch the video defense where I explain these concepts 
 
 ## 📄 Project Document
 The original presentation slide deck is available for review:
-👉 **[Read the Project Presentation PDF](ROS2 Project Presentation.pdf)**
+👉 **[Read the Project Presentation PDF](https://github.com/igokii/ros2-os-analysis/blob/3912558f84d5baadc1ec786d66aaf57cc20ae7d3/ROS2%20Project%20Presentation.pdf)**
 
 ---
 
