@@ -14,7 +14,7 @@ Click the image below to watch the video defense where I explain these concepts 
 
 ## 📄 Project Document
 The original presentation slide deck is available for review:
-👉 **[Read the Project Presentation PDF](./Presentación%20Proyecto%20ROS%20-%20IRENE%20GONZALEZ%20QUIROS.pdf)**
+👉 **[Read the Project Presentation PDF](ROS2 Project Presentation.pdf)**
 
 ---
 
