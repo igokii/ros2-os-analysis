@@ -14,33 +14,25 @@ Click the image below to watch the video defense where I explain these concepts 
 
 ## 📄 Project Document
 The original presentation slide deck is available for review:
-👉 **[Read the Project Presentation PDF](https://github.com/igokii/ros2-os-analysis/blob/3912558f84d5baadc1ec786d66aaf57cc20ae7d3/ROS2%20Project%20Presentation.pdf)**
+ **[Read the Project Presentation PDF](https://github.com/igokii/ros2-os-analysis/blob/3912558f84d5baadc1ec786d66aaf57cc20ae7d3/ROS2%20Project%20Presentation.pdf)**
 
 ---
 
-## 🔍 Core Topics Covered
+## 🔍 Core Concepts Summary
 
-This project bridges theoretical OS concepts learned in class with the practical design of ROS 2, focusing on three main areas:
+This analysis connects theoretical operating systems concepts with the practical design of ROS 2 through three main areas:
 
-### 1. System Structure & Modularity (Microkernel vs. Monolithic)
-* **The Concept:** Monolithic kernels (like Linux) offer high execution efficiency but lack flexibility. ROS 2 acts as user-space middleware, mimicking a **Microkernel** approach over a monolithic architecture.
-* **Isolation:** Individual hardware drivers and components run isolated in User Mode. If a driver crashes, it throws an isolated software exception without crashing the underlying OS kernel.
-* **The VFS Analogy:** Just as a Virtual File System (VFS) abstracts different storage media behind uniform system calls (`read`/`write`), the **ROS Client Library (RCL)** abstracts diverse robotic hardware behind a standardized interface (`publish`/`subscribe`).
+### 1. System Structure and Modularity (Microkernel vs. Monolithic)
+ROS 2 runs entirely as user-space middleware, mimicking a microkernel-like philosophy on top of a monolithic system like Linux. This architecture ensures that if a hardware driver or node crashes, it triggers an isolated software exception rather than causing a kernel panic. This abstraction model is highly comparable to a Virtual File System (VFS), wrapping diverse robotic hardware under a single, unified interface.
 
 ### 2. Inter-Process Communication (DDS vs. Classical IPC)
-* **Anonymous & Scalable:** While classical OS pipes are restricted to 1-to-1 FIFO byte streams, ROS 2 utilizes DDS (Data Distribution Service) for data-centric, many-to-many communication.
-* **Transparent Architecture:** The underlying mechanisms change adaptively based on deployment without modifying application code:
-  * **Same Machine:** Utilizes **Shared Memory** segments to bypass kernel-space copy overheads (crucial for heavy data like LiDAR or video frames).
-  * **Remote Machines:** Automatically switches to network **Sockets (UDP/IP)** through the standard kernel network stack.
-* **Communication Paradigms:** Analyzes standard non-blocking *Topics*, alongside synchronous/blocking *Services* and asynchronous *Actions*.
+Instead of relying on traditional OS pipes, which are too restrictive for complex robotic networks, ROS 2 adopts the DDS standard for many-to-many communication. The underlying transport layer adapts dynamically and remains transparent to the developer: it utilizes shared memory segments for local processes to avoid heavy data-copying overhead (crucial for LiDAR or video), and automatically transitions to standard network sockets (UDP/IP) when communicating between different physical robots.
 
 ### 3. Two-Level Scheduling (OS Scheduler vs. ROS 2 Executors)
-* **The Problem:** The Linux kernel scheduler (e.g., CFS) views a ROS 2 node simply as a standard process or thread. It allocates CPU time slices based on overall system priorities but remains blind to what tasks are pending inside that node.
-* **The Solution:** ROS 2 introduces **Executors**, which act as a user-space scheduler running on top of the OS scheduler. 
-* Once the CPU assigns execution time to the node process, the Executor steps in to coordinate and prioritize internal callbacks (timers, incoming messages, or service requests) to ensure deterministic robotic behavior.
+A standard Linux scheduler is completely blind to the specific tasks waiting inside a ROS 2 node; it simply views the node as a generic process and allocates CPU time. To solve this and guarantee deterministic robotic behavior, ROS 2 introduces Executors. Operating in user space, Executors act as a second-level scheduler, coordinating and prioritizing the node's internal tasks once the host operating system hands over CPU execution.
 
 ---
 
 ## 🛠️ Context
-* **Course:** Operating Systems
+* **Course:** Sistemas Operativos - Universidad de Sevilla
 * **Author:** Irene González Quirós
